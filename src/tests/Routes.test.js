@@ -8,7 +8,7 @@ import Routes from '../routes';
 import HomePage from '../pages/HomePage';
 import LocationPage from '../pages/LocationPage';
 
-test('Router should correctly route to homepage and location page', () => {
+test('Router should correctly route to homepage ', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={['/']}>
       <Routes />

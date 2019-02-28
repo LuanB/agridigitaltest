@@ -8,10 +8,10 @@ export default (props) => (
   <HashRouter>
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route
+      {/* <Route
         path="api/location/:woeId"
         component={({ match }) => <LocationPage woeId={match.params.woeId} />}
-      />
+      /> */}
     </Switch>
   </HashRouter>
 );
