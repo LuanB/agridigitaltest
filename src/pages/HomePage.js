@@ -12,9 +12,32 @@ export class HomePage extends Component {
     searchTerm: '',
     searchResults: [],
     locationDetails: [],
+    displayWeatherCards: false,
     locationWoeID: null,
     isSearching: false
   };
+  handleClearSearch = () =>
+    this.setState({ searchTerm: '', searchResults: [] });
+
+  handleSearch = async (event) => {
+    try {
+      event.preventDefault();
+      this.setState({ isSearching: true });
+
+      const result = await API.get(
+        `/api/location/search/?query=${this.state.searchTerm}`
+      );
+
+      this.setState({
+        searchResults: result.data,
+        isSearching: false
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  handleSearchChange = (searchTerm) => this.setState({ searchTerm });
 
   render() {
     return (

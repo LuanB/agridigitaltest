@@ -24,7 +24,7 @@ describe('Homepage component contains the Location Search, List and details comp
 
 describe('Homepage component have correct initial state for searchTerm, searchResults, locationDetails ', () => {
   it('should render without throwing an error', () => {
-    const wrapper = shallow(<HomePage />);
+    const wrapper = mount(<HomePage />);
     const HomePageInstance = wrapper.instance();
     expect(wrapper.state('searchTerm')).toBe('');
     expect(wrapper.state('searchResults')).toEqual([]);

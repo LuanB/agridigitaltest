@@ -10,6 +10,7 @@ export class LocationSearch extends Component {
         <Form inline={true} onSubmit={this.props.handleSearch}>
           <Form.Item>
             <Input
+              className="input"
               placeholder="Search Weather Info for location...."
               value={this.props.searchTerm}
               icon="circle-cross"
