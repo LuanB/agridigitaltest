@@ -20,7 +20,14 @@ export class HomePage extends Component {
     return (
       <>
         <div>home page</div>
-        <LocationSearch />
+        <LocationSearch
+          className="location-search"
+          searchTerm={this.state.searchTerm}
+          isSearching={this.state.isSearching}
+          handleSearchChange={this.handleSearchChange}
+          handleClearSearch={this.handleClearSearch}
+          handleSearch={this.handleSearch}
+        />
         <LocationList />
         <LocationDetails />
       </>
