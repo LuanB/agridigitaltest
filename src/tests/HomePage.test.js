@@ -9,5 +9,26 @@ describe('Homepage component contains the Location Search, List and details comp
         .find('LocationSearch')
         .exists()
     ).toBe(true);
+    expect(
+      shallow(<HomePage />)
+        .find('LocationList')
+        .exists()
+    ).toBe(true);
+    expect(
+      shallow(<HomePage />)
+        .find('LocationDetails')
+        .exists()
+    ).toBe(true);
+  });
+});
+
+describe('Homepage component have correct initial state for searchTerm, searchResults, locationDetails ', () => {
+  it('should render without throwing an error', () => {
+    const wrapper = shallow(<HomePage />);
+    const HomePageInstance = wrapper.instance();
+    expect(wrapper.state('searchTerm')).toBe('');
+    expect(wrapper.state('searchResults')).toEqual([]);
+    expect(wrapper.state('locationWoeID')).toEqual(null);
+    expect(wrapper.state('isSearching')).toEqual(false);
   });
 });

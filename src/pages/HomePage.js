@@ -8,6 +8,14 @@ import LocationList from '../components/LocationList';
 import LocationDetails from '../components/LocationDetails';
 
 export class HomePage extends Component {
+  state = {
+    searchTerm: '',
+    searchResults: [],
+    locationDetails: [],
+    locationWoeID: null,
+    isSearching: false
+  };
+
   render() {
     return (
       <>
