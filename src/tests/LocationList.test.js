@@ -21,7 +21,7 @@ describe('LocationList component displays a table or not depending on available 
 
     expect(wrapper.exists()).toBe(true);
   });
-  /// something wrong with here
+
   test('component displays table with dummyData', () => {
     const wrapper = shallow(
       <LocationList
@@ -29,7 +29,17 @@ describe('LocationList component displays a table or not depending on available 
         locationClicked={mockHandleLocationClick}
       />
     );
+    expect(wrapper.find('.renderTable')).toHaveLength(1);
+  });
 
-    // expect(wrapper.prop('searchResults').toExist())).toBe(true);
+  test('component does not display table with 0 dummydata', () => {
+    const wrapper = shallow(
+      <LocationList
+        searchResults={[]}
+        locationClicked={mockHandleLocationClick}
+      />
+    );
+
+    expect(wrapper.find('.noTable')).toHaveLength(1);
   });
 });

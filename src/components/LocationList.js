@@ -17,7 +17,7 @@ export class LocationList extends Component {
 
   drawtable = (locations) => {
     return (
-      <div style={{ overflow: 'auto' }}>
+      <div className="renderTable" style={{ overflow: 'auto' }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -53,8 +53,8 @@ export class LocationList extends Component {
   };
 
   render() {
-    const { searchResults } = this.props;
-
+    let { searchResults } = this.props;
+    searchResults = searchResults || 0;
     const locations = searchResults.length > 0 ? searchResults : 0;
     console.log('location is');
     console.log(locations);
@@ -79,7 +79,7 @@ export class LocationList extends Component {
         {locations.length > 0 ? (
           this.drawtable(locations)
         ) : (
-          <div>No table data yet</div>
+          <div className="noTable">No table data yet</div>
         )}
       </>
     );
