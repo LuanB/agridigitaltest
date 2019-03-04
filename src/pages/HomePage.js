@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import API from '../config/api';
+//import API from '../config/api';
+import axios from 'axios';
 import LocationSearch from '../components/LocationSearch';
 
 import LocationList from '../components/LocationList';
@@ -25,8 +26,10 @@ export class HomePage extends Component {
       event.preventDefault();
       this.setState({ isSearching: true });
 
-      const result = await API.get(
-        `/api/location/search/?query=${this.state.searchTerm}`
+      const result = await axios.get(
+        `https://www.metaweather.com/api/location/search/?query=${
+          this.state.searchTerm
+        }`
       );
 
       this.setState({
@@ -44,7 +47,9 @@ export class HomePage extends Component {
     try {
       // this.setState({ isSearching: true });
 
-      const result = await API.get(`/api/location/${woeid}`);
+      const result = await axios.get(
+        `https://www.metaweather.com/api/location/${woeid}`
+      );
 
       this.setState({
         locationDetails: result.data,

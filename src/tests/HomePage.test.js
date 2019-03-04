@@ -18,7 +18,8 @@ describe('Homepage component contains the Location Search, List and details comp
       shallow(<HomePage />)
         .find('LocationDetails')
         .exists()
-    ).toBe(true);
+    ).toBe(false);
+    // location details needs to be false becuase of the dummy data
   });
 });
 
